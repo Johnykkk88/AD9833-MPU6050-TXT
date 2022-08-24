@@ -1,0 +1,82 @@
+# depslib dependency file v1.0
+1661328443 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/ad9833_lib.c
+	<stdlib.h>
+	<stdio.h>
+	<stdint.h>
+	"ad9833_lib.h"
+	"spi.h"
+	<sys/ioctl.h>
+	<linux/ioctl.h>
+	<linux/spi/spidev.h>
+
+1659667333 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/ad9833_lib.h
+
+1659408579 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/spi.h
+	<stddef.h>
+	<stdint.h>
+
+1654675647 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/gpio.c
+	"gpio.h"
+
+1654675647 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/gpio.h
+	<fcntl.h>
+	<stdio.h>
+	<string.h>
+	<unistd.h>
+
+1647751190 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/I2CWrapper.c
+	<stdlib.h>
+	<stdio.h>
+	<unistd.h>
+	<linux/input.h>
+	<fcntl.h>
+	<linux/i2c-dev.h>
+	<linux/i2c.h>
+	<string.h>
+
+1661325335 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/mpu6050.c
+	<stddef.h>
+	<stdlib.h>
+	<stdio.h>
+	"I2CWrapper.h"
+	"mpu6050.h"
+
+1647750799 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/I2CWrapper.h
+
+1661328343 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/mpu6050.h
+
+1659664399 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/spi.c
+	<stddef.h>
+	<stdint.h>
+	<stdarg.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<fcntl.h>
+	<unistd.h>
+	<errno.h>
+	<sys/ioctl.h>
+	<linux/ioctl.h>
+	<linux/spi/spidev.h>
+	"spi.h"
+
+1661329464 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/main.c
+	<stdlib.h>
+	<stdbool.h>
+	<sys/ioctl.h>
+	<linux/ioctl.h>
+	<linux/spi/spidev.h>
+	<string.h>
+	"spi.h"
+	"gpio.h"
+	"ad9833_lib.h"
+	<stdio.h>
+	<unistd.h>
+	<fcntl.h>
+	<signal.h>
+	<string.h>
+	<sys/time.h>
+	<math.h>
+	"I2CWrapper.h"
+	"mpu6050.h"
+
