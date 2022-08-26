@@ -17,7 +17,7 @@ uint32_t freq = 0;           // Value Frequency Register
 uint16_t Wave;
 float frequency;
 float Phase;
-
+char Waveform;
 static void AD9833_Write(uint16_t val)
 {
         uint16_t tx = (val >> 8) | (val << 8);
@@ -26,21 +26,11 @@ static void AD9833_Write(uint16_t val)
 }
 void AD9833_Scan(void)
 {
-//const char *signal_form [3] = {"SIN", "TRI", "SQR"};
 printf("Signal form:\n");
 scanf("%x", &Wave);
-//scanf("%s", &signal_form);
 printf("Frequency:\n");
 scanf("%f", &frequency);
-/*if (signal_form == "SIN")
-  AD9833_Wave(SIN, frequency, 0.0);
-  else if (signal_form == "TRI")
-   AD9833_Wave(TRI, frequency, 0.0);
-   else if (signal_form == "SQR")
-     AD9833_Wave(SQR, frequency, 0.0);
-    else
-    AD9833_Wave(SIN, frequency, 0.0);*/
-AD9833_Wave(Wave, frequency, 0.0);
+AD9833_Wave(Waveform, frequency, 0.0);
 }
 void AD9833_Wave(uint16_t Wave,float frequency,float Phase)
 {

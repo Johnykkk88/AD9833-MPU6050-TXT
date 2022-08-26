@@ -27,8 +27,19 @@ float GSumSquare;
 float Temperature;
 long  Xsum,Ysum,Zsum;
 double accX, accY, accZ, gyroX, gyroY, gyroZ;
-const BUS = 1;
+const int BUS = 1;
 int I2C_Current_Slave_Adress = 0x68;
+
+volatile int timer = 0;
+uint16_t Wave;
+float frequency;
+
+void handler(int sig)
+{
+        (void)sig;
+        ++timer;
+        return;
+}
 
 void sig_handler(int signo)
 {
@@ -51,15 +62,9 @@ int main()
         return 1;
         }
     fprintf(file_ptr, "MPU Data Read: \n");
-    signal(SIGINT, sig_handler);
 
         spi = spi_new();
         AD9833_Init();
-        //signal(SIGALRM, sig_handler);
-        //signal(SIGINT, sig_handler);
-        //alarm(15);
-        //AD9833_Scan();
-        AD9833_Wave(SQR, 1854.0, 0.0);
 
     i2c_handle = I2CWrapperOpen(BUS,I2C_Current_Slave_Adress);
 	if(i2c_handle <0) return -1;
@@ -72,9 +77,15 @@ int main()
            Setup_MPU6050(i2c_handle);
 
            while(!ExitFlag)
-           {
-            // AD9833_Scan();
-
+                {
+           signal(SIGALRM, handler);
+           alarm(20);
+           AD9833_Scan();
+           printf("Wave: %x, Frequency: %g Hz\n", Wave, frequency);
+           fprintf(file_ptr, "Wave: %x, Frequency: %g Hz\n", Wave, frequency);
+           timer = 0;
+           while(timer == 0)
+                        {
            Get_Accel_Values(i2c_handle,&Data);
 
            accX = (double)Data.Gx / ACC_FS_SENSITIVITY_3;
@@ -85,16 +96,16 @@ int main()
            GSumSquare += ((double) accZ) * accZ;
            Gtotal = sqrt(GSumSquare);
            Temperature = (float)  Data.Temperature / 340.0 + 36.53;
-           gyroX = (double)Data.Gyrox / GYRO_FS_SENSITIVITY_3;
-	   gyroY = (double)Data.Gyroy / GYRO_FS_SENSITIVITY_3;
-	   gyroZ = (double)Data.Gyroz / GYRO_FS_SENSITIVITY_3;
-           //sleep(50 * 1000);
+           gyroX = (double)Data.Gyrox / GYRO_FS_SENSITIVITY_0;
+	   gyroY = (double)Data.Gyroy / GYRO_FS_SENSITIVITY_0;
+	   gyroZ = (double)Data.Gyroz / GYRO_FS_SENSITIVITY_0;
 printf("Accelerometer x=%0.2f y=%0.2f z=%0.2f All=%0.2f Temp=%+0.2f Gyro x=%0.2f y=%0.2f z=%0.2f\n",\
         accX, accY, accZ, Gtotal, Temperature, gyroX, gyroY, gyroZ);
 fprintf(file_ptr, "Accelerometer x=%0.2f y=%0.2f z=%0.2f All=%0.2f Temp=%+0.2f Gyro x=%0.2f y=%0.2f z=%0.2f\n",\
         accX, accY, accZ, Gtotal, Temperature, gyroX, gyroY, gyroZ);
         fflush(stdout);
-        }
+                        }
+                }
       }
    AD9833_Reset();
    spi_close(spi);

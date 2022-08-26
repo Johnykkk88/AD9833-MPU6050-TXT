@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1661328443 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/ad9833_lib.c
+1661481021 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/ad9833_lib.c
 	<stdlib.h>
 	<stdio.h>
 	<stdint.h>
@@ -43,7 +43,7 @@
 
 1647750799 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/I2CWrapper.h
 
-1661328343 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/mpu6050.h
+1661391749 /home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/mpu6050.h
 
 1659664399 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/spi.c
 	<stddef.h>
@@ -60,7 +60,7 @@
 	<linux/spi/spidev.h>
 	"spi.h"
 
-1661329464 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/main.c
+1661480887 source:/home/jetson/Code_Blocks_Projects/AD9833+MPU605+TXT/main.c
 	<stdlib.h>
 	<stdbool.h>
 	<sys/ioctl.h>

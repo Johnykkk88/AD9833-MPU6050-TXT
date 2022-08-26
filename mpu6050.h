@@ -111,16 +111,16 @@
 #define MPU6050_RA_WHO_AM_I 0x75
 
 /* Accelerometer Sensitivity Scale Factor */
-#define ACC_FS_SENSITIVITY_0		16384
-#define ACC_FS_SENSITIVITY_1		8192
-#define ACC_FS_SENSITIVITY_2		4096
-#define ACC_FS_SENSITIVITY_3		2048
+#define ACC_FS_SENSITIVITY_0		16384 // ±2g
+#define ACC_FS_SENSITIVITY_1		8192  // ±4g
+#define ACC_FS_SENSITIVITY_2		4096  // ±8g
+#define ACC_FS_SENSITIVITY_3		2048  // ±16g
 
 /* Gyroscope Sensitivity Scale Factor */
-#define GYRO_FS_SENSITIVITY_0		131
-#define GYRO_FS_SENSITIVITY_1		65.5
-#define GYRO_FS_SENSITIVITY_2		32.8
-#define GYRO_FS_SENSITIVITY_3		16.4
+#define GYRO_FS_SENSITIVITY_0		131   // ±250 °/s
+#define GYRO_FS_SENSITIVITY_1		65.5  // ±500 °/s
+#define GYRO_FS_SENSITIVITY_2		32.8  // ±1000 °/s
+#define GYRO_FS_SENSITIVITY_3		16.4  // ±2000 °/s
 
 typedef struct
 {
